@@ -21,6 +21,7 @@
 - VirtualBox 5.0 +
 - 提前下载Kubernetes 1.9以上版本（支持最新的1.13.0）的release压缩包
 - Mac/Linux，**Windows不完全支持，仅在windows10下通过**
+- 下载安装包https://pan.baidu.com/s/1xfRnrosSwGqwBrufq_Qf2w 到当前目录，无须解压
 
 ## 集群
 
@@ -111,7 +112,7 @@ Bringing machine 'node3' up with 'virtualbox' provider...
 ==> node1: being used to connect to the internet.
     node1: Which interface should the network bridge to?
     node1: Which interface should the network bridge to?
-    
+
 ```
 输入`1`之后按回车继续。（根据自己真实网卡选择，node2、node3同样需要）
 
@@ -365,7 +366,7 @@ Kiali web地址：http://172.17.8.101:31439
 
 ### Weave scope
 
-[Weave scope](https://github.com/weaveworks/scope)可用于监控、可视化和管理Docker&Kubernetes集群，详情见<https://www.weave.works/oss/scope/> 
+[Weave scope](https://github.com/weaveworks/scope)可用于监控、可视化和管理Docker&Kubernetes集群，详情见<https://www.weave.works/oss/scope/>
 
 在本地该项目的根路径下执行下面的命令：
 
@@ -466,4 +467,3 @@ rm -rf .vagrant
 <p align="center">
   <img src="https://ws1.sinaimg.cn/large/00704eQkgy1fshv989hhqj309k09k0t6.jpg" alt="ServiceMesher微信公众号二维码"/>
 </p>
-

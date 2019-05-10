@@ -10,9 +10,9 @@ mv /etc/yum.repos.d/CentOS7-Base-163.repo /etc/yum.repos.d/CentOS-Base.repo
 yum install -y wget curl conntrack-tools vim net-tools telnet tcpdump bind-utils socat ntp kmod ceph-common dos2unix
 kubernetes_release="/vagrant/kubernetes-server-linux-amd64.tar.gz"
 # Download Kubernetes
-if [[ $(hostname) == "node1" ]] && [[ ! -f "$kubernetes_release" ]]; then
-    wget https://storage.googleapis.com/kubernetes-release/release/v1.11.0/kubernetes-server-linux-amd64.tar.gz -P /vagrant/
-fi
+# if [[ $(hostname) == "node1" ]] && [[ ! -f "$kubernetes_release" ]]; then
+#     wget https://storage.googleapis.com/kubernetes-release/release/v1.11.0/kubernetes-server-linux-amd64.tar.gz -P /vagrant/
+# fi
 
 # enable ntp to sync time
 echo 'sync time'
@@ -119,6 +119,9 @@ systemctl daemon-reload
 systemctl enable flanneld
 systemctl start flanneld
 
+echo 'disable selinux for docker'
+sed -i 's/selinux-enabled/selinux-enabled=false/g' /etc/sysconfig/docker
+
 echo 'enable docker'
 systemctl daemon-reload
 systemctl enable docker
@@ -213,4 +216,3 @@ fi
 echo "Configure Kubectl to autocomplete"
 source <(kubectl completion bash) # setup autocomplete in bash into the current shell, bash-completion package should be installed first.
 echo "source <(kubectl completion bash)" >> ~/.bashrc # add autocomplete permanently to your bash shell.
-
